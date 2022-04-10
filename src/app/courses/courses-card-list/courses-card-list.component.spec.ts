@@ -39,4 +39,17 @@ describe('CoursesCardListComponent', () => {
     expect(cards.length).toBe(12);
   });
 
+  it('should display the first course', () => {
+    component.courses = setupCourses();
+    fixture.detectChanges();
+    const course = component.courses[0];
+    const card = debugElement.query(By.css(".course-card:first-child")),
+          title = card.query(By.css("mat-card-title")),
+          image = card.query(By.css("img"));
+
+    expect(card).toBeTruthy();
+    expect(title.nativeElement.textContent).toBe(course.titles.description);
+    expect(image.nativeElement.src).toBe(course.iconUrl);
+  })
+
 })
