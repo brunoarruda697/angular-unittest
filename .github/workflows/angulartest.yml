@@ -15,9 +15,7 @@ jobs:
         with:
           node-version: "12.x"
       - name: Clean project to build
-        run: rmdir dist
-        run: rmdir package-lock.json
-        run: rmdir node_modules
+        run: rmdir dist && rmdir package-lock.json && rmdir node_modules
       - name: Install dependencies
         run: npm install
       - name: Build and test
