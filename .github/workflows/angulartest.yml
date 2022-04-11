@@ -14,6 +14,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+      - name: Clean project to build
+        run: rmdir dist
+        run: rmdir package-lock.json
+        run: rmdir node_modules
       - name: Install dependencies
         run: npm install
       - name: Build and test
